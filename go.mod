@@ -1,4 +1,4 @@
-module go-template
+module go-technical
 
 go 1.20
 

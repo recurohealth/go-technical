@@ -2,8 +2,8 @@ package route
 
 import (
 	"fmt"
-	"go-template/api/custom"
-	"go-template/api/database"
+	"go-technical/api/custom"
+	"go-technical/api/database"
 	"net/http"
 	"os"
 

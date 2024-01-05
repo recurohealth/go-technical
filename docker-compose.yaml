@@ -8,6 +8,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: coffee
+      POSTGRES_DB: go-technical-db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres # pragma: allowlist secret

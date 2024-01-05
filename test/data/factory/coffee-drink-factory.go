@@ -1,8 +1,8 @@
 package factory
 
 import (
-	"go-template/api/model"
-	"go-template/test/utility"
+	"go-technical/api/model"
+	"go-technical/test/utility"
 
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/rs/zerolog/log"

@@ -1,7 +1,7 @@
 package route
 
 import (
-	"go-template/api/handler"
+	"go-technical/api/handler"
 
 	"github.com/labstack/echo/v4"
 )

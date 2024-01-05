@@ -3,9 +3,9 @@ package handler
 import (
 	"bytes"
 	"encoding/json"
-	"go-template/api/custom"
-	"go-template/api/model"
-	"go-template/test/data/factory"
+	"go-technical/api/custom"
+	"go-technical/api/model"
+	"go-technical/test/data/factory"
 	"net/http"
 	"net/http/httptest"
 	"net/url"

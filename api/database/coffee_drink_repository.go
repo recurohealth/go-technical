@@ -2,7 +2,7 @@ package database
 
 import (
 	"context"
-	"go-template/api/model"
+	"go-technical/api/model"
 
 	"github.com/georgysavva/scany/v2/pgxscan"
 	"github.com/google/uuid"
