@@ -41,6 +41,6 @@ func NewEchoRouter(db database.Database) *EchoRouter {
 
 func (echoRouter *EchoRouter) RegisterRoutes() {
 	baseGroup := echoRouter.Group(BASE_PATH)
-	echoRouter.AddCoffeeDrinksRoutes(baseGroup)
+	echoRouter.AddPatientRoutes(baseGroup)
 	echoRouter.AddHealthRoute(baseGroup)
 }

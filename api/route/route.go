@@ -1,6 +1,6 @@
 package route
 
 const (
-	COFFEE_DRINKS_PATH = "/coffee-drinks"
-	HEALTH_ROUTE       = "/health"
+	PATIENTS_PATH = "/patients"
+	HEALTH_ROUTE  = "/health"
 )
