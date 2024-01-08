@@ -6,7 +6,6 @@ CREATE TYPE "enum_gender" AS ENUM (
 
 CREATE TABLE "patient" (
     "id" UUID PRIMARY KEY,
-    "member_id" INT UNIQUE NOT NULL,
     "client_id" VARCHAR(255),
     "first_name" VARCHAR(64) NOT NULL,
     "last_name" VARCHAR(64) NOT NULL,

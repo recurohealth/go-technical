@@ -10,7 +10,6 @@ type Gender string
 
 type Patient struct {
 	Id           string `json:"id" db:"id"`
-	MemberId     string `json:"memberId" db:"member_id"`
 	ClientId     string `json:"clientId" db:"client_id"`
 	FirstName    string `json:"firstName" db:"first_name"`
 	LastName     string `json:"lastName" db:"last_name"`

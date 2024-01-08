@@ -22,7 +22,6 @@ func (db *PostgresDatabase) CreatePatient(patient model.Patient) (*string, error
 		context.Background(),
 		query,
 		uuid.New().String(),
-		patient.MemberId,
 		patient.ClientId,
 		patient.FirstName,
 		patient.LastName,

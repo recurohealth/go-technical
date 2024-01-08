@@ -14,14 +14,13 @@ func (PatientQuery) InsertPatient() (query string, args []interface{}, err error
 		Rows(
 			goqu.Record{
 				"id":            goqu.L("$1"),
-				"member_id":     goqu.L("$2"),
-				"client_id":     goqu.L("$3"),
-				"first_name":    goqu.L("$4"),
-				"last_name":     goqu.L("$5"),
-				"gender":        goqu.L("$6"),
-				"date_of_birth": goqu.L("$7"),
-				"phone_number":  goqu.L("$8"),
-				"email":         goqu.L("$9"),
+				"client_id":     goqu.L("$2"),
+				"first_name":    goqu.L("$3"),
+				"last_name":     goqu.L("$4"),
+				"gender":        goqu.L("$5"),
+				"date_of_birth": goqu.L("$6"),
+				"phone_number":  goqu.L("$7"),
+				"email":         goqu.L("$8"),
 			},
 		).
 		Returning("id").
