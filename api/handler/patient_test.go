@@ -46,3 +46,7 @@ func (db *DatabaseCreatePatientStub) CreatePatient(patient model.Patient) (*stri
 	randomUUID := utility.Faker.UUID()
 	return &randomUUID, nil
 }
+func (db *DatabaseCreatePatientStub) CreateAddress(address model.Address) (*string, error) {
+	randomUUID := utility.Faker.UUID()
+	return &randomUUID, nil
+}
