@@ -10,8 +10,8 @@ import (
 )
 
 func CreatePatient(ctx echo.Context) error {
-	patient := model.Patient{}
-	err := ctx.Bind(&patient)
+	clientPatientInfo := model.ClientPatientInfo{}
+	err := ctx.Bind(&clientPatientInfo)
 	if err != nil {
 		return ctx.JSON(http.StatusBadRequest, model.NewErrorMessage(
 			http.StatusBadRequest,
@@ -22,7 +22,15 @@ func CreatePatient(ctx echo.Context) error {
 
 	db := ctx.Get(custom.DATABASE_MIDDLEWARE_KEY)
 	patientRepository := db.(database.PatientRepository)
-	patientId, err := patientRepository.CreatePatient(patient)
+	patientId, err := patientRepository.CreatePatient(model.Patient{
+		ClientId:    clientPatientInfo.ClientId,
+		FirstName:   clientPatientInfo.FirstName,
+		LastName:    clientPatientInfo.LastName,
+		Gender:      clientPatientInfo.Gender,
+		DateOfBirth: clientPatientInfo.DateOfBirth,
+		PhoneNumber: clientPatientInfo.PhoneNumber,
+		Email:       clientPatientInfo.Email,
+	})
 	if err != nil {
 		return ctx.JSON(http.StatusInternalServerError, model.NewErrorMessage(
 			http.StatusInternalServerError,
@@ -32,7 +40,7 @@ func CreatePatient(ctx echo.Context) error {
 	}
 
 	addressRepository := db.(database.AddressRepository)
-	address := patient.Address
+	address := clientPatientInfo.Address
 	_, err = addressRepository.CreateAddress(model.Address{
 		City:           address.City,
 		AddressLineOne: address.AddressLineOne,
