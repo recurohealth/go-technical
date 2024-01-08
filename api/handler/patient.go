@@ -32,7 +32,16 @@ func CreatePatient(ctx echo.Context) error {
 	}
 
 	addressRepository := db.(database.AddressRepository)
-	_, err = addressRepository.CreateAddress(patient.Address)
+	address := patient.Address
+	_, err = addressRepository.CreateAddress(model.Address{
+		City:           address.City,
+		AddressLineOne: address.AddressLineOne,
+		AddressLineTwo: address.AddressLineTwo,
+		State:          address.State,
+		Zip:            address.Zip,
+		Country:        address.Country,
+		PatientId:      *patientId,
+	})
 	if err != nil {
 		return ctx.JSON(http.StatusInternalServerError, model.NewErrorMessage(
 			http.StatusInternalServerError,
