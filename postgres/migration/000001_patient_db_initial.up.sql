@@ -16,3 +16,16 @@ CREATE TABLE "patient" (
     "date_created" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "date_modified" TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+CREATE TABLE "address" (
+    "id" uuid UNIQUE PRIMARY KEY,
+    "city" varchar(64) NOT NULL,
+    "address_line_one" varchar(255) NOT NULL,
+    "address_line_two" varchar(255),
+    "state" varchar(2) NOT NULL,
+    "zip" varchar(10) NOT NULL,
+    "country" varchar(64) NOT NULL,
+    "date_created" TIMESTAMPTZ NOT NULL DEFAULT now(),
+    "date_modified" TIMESTAMPTZ NOT NULL DEFAULT now(),
+    "patient_id" UUID NOT NULL REFERENCES patient (id) ON DELETE CASCADE
+);
