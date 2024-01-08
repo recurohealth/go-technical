@@ -22,7 +22,14 @@ func (db *PostgresDatabase) CreatePatient(patient model.Patient) (*string, error
 		context.Background(),
 		query,
 		uuid.New().String(),
-		// TODO: add other fields
+		patient.MemberId,
+		patient.ClientId,
+		patient.FirstName,
+		patient.LastName,
+		patient.Gender,
+		patient.DateOfBirth,
+		patient.PhoneNumber,
+		patient.Email,
 	)
 
 	var createdId *string
