@@ -4,11 +4,15 @@ import (
 	"bytes"
 	"encoding/json"
 	"go-technical/api/custom"
+	"go-technical/api/database"
+	"go-technical/api/model"
+	"go-technical/test/utility"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/labstack/echo/v4"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCreatePatientHandler(t *testing.T) {
@@ -21,11 +25,24 @@ func TestCreatePatientHandler(t *testing.T) {
 		request.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)
 		recorder := httptest.NewRecorder()
 		ctx := e.NewContext(request, recorder)
-		databaseStub := DatabaseStub{}
-		ctx.Set(custom.DATABASE_MIDDLEWARE_KEY, &databaseStub)
+		databaseCreatePatientStub := DatabaseCreatePatientStub{}
+		ctx.Set(custom.DATABASE_MIDDLEWARE_KEY, &databaseCreatePatientStub)
 
 		_ = CreatePatient(ctx)
+
+		assert.Equal(t, "expected", "actual")
 	})
 }
 
-type DatabaseStub struct{}
+type DatabaseCreatePatientStub struct {
+	database.Database
+	database.PatientRepository
+}
+
+func (db *DatabaseCreatePatientStub) GetPool() database.PgxPool {
+	return database.PgxPool(&utility.DatabasePoolStub{})
+}
+func (db *DatabaseCreatePatientStub) CreatePatient(patient model.Patient) (*string, error) {
+	randomUUID := utility.Faker.UUID()
+	return &randomUUID, nil
+}
