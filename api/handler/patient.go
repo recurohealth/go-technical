@@ -31,15 +31,15 @@ func CreatePatient(ctx echo.Context) error {
 		))
 	}
 
-	// addressRepository := db.(database.AddressRepository)
-	// _, err = addressRepository.CreateAddress(patient.Address)
-	// if err != nil {
-	// 	return ctx.JSON(http.StatusInternalServerError, model.NewErrorMessage(
-	// 		http.StatusInternalServerError,
-	// 		"unable to create address",
-	// 		err,
-	// 	))
-	// }
+	addressRepository := db.(database.AddressRepository)
+	_, err = addressRepository.CreateAddress(patient.Address)
+	if err != nil {
+		return ctx.JSON(http.StatusInternalServerError, model.NewErrorMessage(
+			http.StatusInternalServerError,
+			"unable to create address",
+			err,
+		))
+	}
 
 	return ctx.JSON(http.StatusOK, map[string]string{
 		"id": *patientId,
