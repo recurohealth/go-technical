@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"go-template/api/database"
-	"go-template/api/route"
+	"go-technical/api/database"
+	"go-technical/api/route"
 
 	"github.com/joho/godotenv"
 	"github.com/rs/zerolog/log"

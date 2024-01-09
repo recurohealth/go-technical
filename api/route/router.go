@@ -2,8 +2,8 @@ package route
 
 import (
 	"fmt"
-	"go-template/api/custom"
-	"go-template/api/database"
+	"go-technical/api/custom"
+	"go-technical/api/database"
 	"net/http"
 	"os"
 
@@ -41,6 +41,6 @@ func NewEchoRouter(db database.Database) *EchoRouter {
 
 func (echoRouter *EchoRouter) RegisterRoutes() {
 	baseGroup := echoRouter.Group(BASE_PATH)
-	echoRouter.AddCoffeeDrinksRoutes(baseGroup)
+	echoRouter.AddPatientRoutes(baseGroup)
 	echoRouter.AddHealthRoute(baseGroup)
 }

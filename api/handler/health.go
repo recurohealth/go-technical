@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"go-template/api/custom"
-	"go-template/api/database"
-	"go-template/api/model"
+	"go-technical/api/custom"
+	"go-technical/api/database"
+	"go-technical/api/model"
 	"net/http"
 
 	"github.com/labstack/echo/v4"

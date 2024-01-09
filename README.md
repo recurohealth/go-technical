@@ -4,8 +4,7 @@
 
 ## Table of Contents
 
-- [About](#about)
-  - [Technology Stack](#technology-stack)
+- [Technology Stack](#technology-stack)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -14,19 +13,12 @@
 - [Development](#development)
   - [Pre-commit Hooks](#pre-commit-hooks)
 
-## About
-
-The purpose of the Go Template is to give a starting point for new web services. In doing this, we are able to standardize what development tools and processes we recommend for more efficient development. Getting everyone in the Go world using the same things will naturally give us familiarity over time and makes it easier to identify ways in which we can improve this template and/or existing Go services.
-
-The template includes an example of a simple coffee API that can be used as a reference point for the recommended [technology stack](#technology-stack).
-
-### Technology Stack
+## Technology Stack
 
 Tools that are included in this template and/or recommended for developing Go services:
 
 - HTTP web framework - [echo](https://github.com/labstack/echo)
 - Environment variable loader - [godotenv](https://github.com/joho/godotenv)
-- Access token validator - [go-jwt-middleware](https://github.com/auth0/go-jwt-middleware)
 - Database driver - [pgxpool (postgres)](https://github.com/jackc/pgx) or [mongo-go-driver](https://github.com/mongodb/mongo-go-driver)
 - Database migration - [migrate](https://github.com/golang-migrate/migrate)
 - Database query builder - [goqu](https://github.com/doug-martin/goqu)
@@ -34,7 +26,6 @@ Tools that are included in this template and/or recommended for developing Go se
 - Logger - [zerolog](https://github.com/rs/zerolog)
 - Test assertions and mocks - [testify](https://github.com/stretchr/testify)
 - Test data faking - [gofakeit](https://github.com/brianvoe/gofakeit/v6)
-- Test service containerization - [testcontainer-go](https://github.com/testcontainers/testcontainers-go)
 
 ## Getting Started
 
@@ -104,17 +95,15 @@ make server
 List of available endpoints:
 
 ```file
-GET localhost:1323/api/v1/coffeeDrinks
-GET localhost:1323/api/v1/coffeeDrinks?temperatureStyle=<HOT or COLD>
-POST localhost:1323/api/v1/coffeeDrinks
+POST localhost:1323/api/v1/patients
 ```
 
-An example of creating a coffee drink:
+An example of creating a patient:
 
 ```bash
-curl -X POST 'localhost:1323/api/v1/coffeeDrinks' \
+curl -X POST 'localhost:1323/api/v1/patients' \
    -H 'Content-Type: application/json' \
-   -d '{ "description": "Cold brew coffee is a coffee drink prepared by steeping coarse grounds in room temperature or cold water and letting it steep for at least 12 hours", "id": "4b5e8f79-134f-4054-822e-c64e3229778b", "name": "Cold Brew", "origin": "Japan", "temperatureStyle": "COLD" }'
+   -d '{ "id": "4cb1eb83-197c-4e43-9522-0abb669914c6", "memberId": "123456789", "clientId": "2ba36ffb-22d5-4fdf-80ae-fe09393fbab9", "firstName": "Foo", "lastName": "Bar", "gender": "M", "dateOfBirth": "01-01-1990", "phoneNumber": "999-999-9999", "email": "foobar@gmail.com", "address": { "city": "Green Bay", "addressLineOne": "1234 Lone St", "addressLineTwo": "", "state": "WI", "zip": "55914", "country": "USA" } }'
 ```
 
 ## Development

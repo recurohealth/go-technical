@@ -1,7 +1,7 @@
 package custom
 
 import (
-	"go-template/api/database"
+	"go-technical/api/database"
 
 	"github.com/labstack/echo/v4"
 )
