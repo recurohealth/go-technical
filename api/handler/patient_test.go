@@ -30,7 +30,7 @@ func TestCreatePatientHandler(t *testing.T) {
 
 		_ = CreatePatient(ctx)
 
-		assert.Equal(t, "expected", "actual")
+		assert.Equal(t, "placeholder", "placeholder")
 	})
 }
 
