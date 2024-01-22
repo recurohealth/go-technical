@@ -58,7 +58,7 @@ func CreatePatient(ctx echo.Context) error {
 		))
 	}
 
-	return ctx.JSON(http.StatusOK, map[string]string{
-		"id": *patientId,
+	return ctx.JSON(http.StatusOK, model.Patient{
+		Id: *patientId,
 	})
 }
