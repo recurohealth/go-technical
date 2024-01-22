@@ -1,4 +1,4 @@
-# Go Template
+# Go Technical
 
 ![Golang](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 
@@ -14,8 +14,6 @@
   - [Pre-commit Hooks](#pre-commit-hooks)
 
 ## Technology Stack
-
-Tools that are included in this template and/or recommended for developing Go services:
 
 - HTTP web framework - [echo](https://github.com/labstack/echo)
 - Environment variable loader - [godotenv](https://github.com/joho/godotenv)
