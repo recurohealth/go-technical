@@ -21,29 +21,4 @@ jobs:
         go build cmd/server.go
     - name: Run Unit Tests
       id: unit
-      run: |
-        echo 'UNIT_TEST_OUTPUT<<EOF' >> $GITHUB_OUTPUT
-        make test >> $GITHUB_OUTPUT
-        echo 'EOF' >> $GITHUB_OUTPUT
-    - name: Update Pull Request
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.TF_ACCESS_TOKEN }}
-        script: |
-          const output = `
-          <details>
-          <summary>Unit Test Report</summary>
-
-          \`\`\`\n
-          ${{ steps.unit.outputs.UNIT_TEST_OUTPUT }}
-          \`\`\`\n
-
-          </details>
-
-          *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: output
-          })
+      run: make test
