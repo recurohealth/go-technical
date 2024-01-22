@@ -19,7 +19,7 @@ func TestCreatePatientHandler(t *testing.T) {
 	e := echo.New()
 
 	t.Run("test description", func(t *testing.T) {
-		data, _ := json.Marshal(map[string]interface{}{})
+		data, _ := json.Marshal(model.ClientPatientInfo{})
 		requestBody := bytes.NewReader(data)
 		request := httptest.NewRequest(http.MethodPost, "/patients", requestBody)
 		request.Header.Set(echo.HeaderContentType, echo.MIMEApplicationJSON)

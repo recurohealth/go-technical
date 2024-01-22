@@ -9,7 +9,6 @@ const (
 type Gender string
 
 type ClientPatientInfo struct {
-	Id          string  `json:"id" db:"id"`
 	ClientId    string  `json:"clientId" db:"client_id"`
 	FirstName   string  `json:"firstName" db:"first_name"`
 	LastName    string  `json:"lastName" db:"last_name"`
